@@ -9,9 +9,9 @@ create table usuario(
 
 create table hospital(
 	id int not null auto_increment, 
-	numero_salas_cirurgia int, 
-	numero_leitos int,
-	numero_leitos_enfermaria int,
+	numeroSalasCirurgia int, 
+	numeroLeitos int,
+	numeroLeitosEnfermaria int,
 	cep int, 
 	numero int, 
 	nome varchar(30),
@@ -22,13 +22,13 @@ create table hospital(
 
 create table consultas(
 	id int not null auto_increment, 
-	id_paciente int not null,
-	id_profissional int not null,
-    started_at datetime not null,
-    finish_at datetime not null,
+	idPaciente int not null,
+	idProfissional int not null,
+    startedAt datetime not null,
+    finishAt datetime not null,
     tipo varchar(30),
-	foreign key(id_paciente) references paciente(id),
-	foreign key(id_profissional) references profissional(id),
+	foreign key(idPaciente) references paciente(id),
+	foreign key(idProfissional) references profissional(id),
     primary key(id)
 ) ENGINE= INNODB;
 
@@ -80,3 +80,15 @@ create table endereco(
 	primary key(numero)
 ) ENGINE= INNODB;
 
+create table medico(
+	idMedico int not null,
+	idProfissional int not null,
+	idPessoal int not null,
+	idHospital int not null,
+	especialidade varchar(60),
+    categoria int not null,
+    primary key(idMedico),
+	foreign key(idProfissional) references profissional(id), 
+    foreign key(idPessoal) references paciente(id), 
+    foreign key(idHospital) references hospital(id)
+) ENGINE = INNODB;
