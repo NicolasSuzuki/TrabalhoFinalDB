@@ -80,3 +80,12 @@ create table endereco(
 	primary key(numero)
 ) ENGINE= INNODB;
 
+create table medico(
+	carteiraDeRegistro int not null,
+	especialidade varchar(60),
+    categoria int not null,
+    primary key(carteiraDeRegistro),
+	foreign key(idProfissional) references profissional(id), 
+    foreign key(idPessoal) references paciente(id), 
+    foreign key(idHospital) references hospital(id)
+) ENGINE = INNODB;
