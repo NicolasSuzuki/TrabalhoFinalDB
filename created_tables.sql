@@ -34,22 +34,22 @@ create table consultas(
 
 create table profissional(
 	id int not null auto_increment, 
- 	user_id int, 
+ 	userId int, 
     tipo varchar(20),
-  	foreign key(user_id) references usuario(id), 
+  	foreign key(userId) references usuario(id), 
 	primary key(id)
 ) ENGINE= INNODB;
 
 create table paciente(
 	id int not null auto_increment, 
-	user_id int, 
-  	foreign key(user_id) references usuario(id), 
+	userId int, 
+  	foreign key(userId) references usuario(id), 
 	primary key(id)
 ) ENGINE= INNODB;
 
 create table pessoa(
 	id int not null auto_increment, 
-	user_id int, 
+	userId int, 
 	cep int, 
 	numero int, 
 	complemento varchar(30), 
@@ -58,7 +58,7 @@ create table pessoa(
 	telefone int,
 	foreign key(cep) references endereco(cep), 
 	foreign key(rg) references documento(rg),
-	foreign key(user_id) references usuario(id), 
+	foreign key(userId) references usuario(id), 
 	foreign key(numero) references endereco(numero),
 	primary key(id)
  ) ENGINE= INNODB;
