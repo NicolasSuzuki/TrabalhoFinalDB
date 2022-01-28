@@ -16,7 +16,7 @@ create table hospital(
 	numero int, 
 	nome varchar(30),
 	foreign key(cep) references endereco(cep), 
-	foreign key(rg) references documento(rg),
+	foreign key(numero) references endereco(numero), 
 	primary key(id)
 ) ENGINE= INNODB;
 
@@ -89,6 +89,13 @@ create table medico(
     categoria int not null,
     primary key(idMedico),
 	foreign key(idProfissional) references profissional(id), 
-    foreign key(idPessoal) references paciente(id), 
     foreign key(idHospital) references hospital(id)
+) ENGINE = INNODB;
+
+create table expediente(
+	diaDaSemana varchar(10),
+    horaInicio datetime not null,
+    horaFim datetime not null,
+	idProfissional int not null,
+	foreign key(idProfissional) references profissional(id) 
 ) ENGINE = INNODB;
