@@ -28,19 +28,19 @@ create table paciente(
 ) ENGINE= INNODB;
 
 create table medico(
-	id int not null,
+	id int not null auto_increment,
 	idProfissional int not null,
 	especialidade varchar(60),
     primary key(id),
-	foreign key(idProfissional) references profissional(id), 
+	foreign key(idProfissional) references profissional(id)
 ) ENGINE = INNODB;
 
 create table enfermeira(
-	id int not null,
+	id int not null auto_increment,
 	idProfissional int not null,
 	especialidade varchar(60),
     primary key(id),
-	foreign key(idProfissional) references profissional(id), 
+	foreign key(idProfissional) references profissional(id)
 ) ENGINE = INNODB;
 
 create table hospital(
@@ -62,8 +62,8 @@ create table consultas(
     horaInicio datetime not null,
     horaFim datetime not null,
     tipo varchar(30),
-	criadoEm datetime not null;
-	atualiadoEm datetime not null;
+	criadoEm datetime not null,
+	atualiadoEm datetime not null,
 	foreign key(idProfissional) references profissional(id),
 	foreign key(idPaciente) references paciente(id),
 	foreign key(idHospital) references hospital(id),
@@ -79,22 +79,6 @@ create table expediente(
     horaFim datetime not null,
 	foreign key(idProfissional) references profissional(id),
 	primary key(id) 
-) ENGINE = INNODB;
-
-create table cirurgia(
-	id int not null auto_increment,
-	idProfissional int not null,
-	idPaciente int not null,
-	idHospital int not null,
-	sala int not null,
-	horaInicio datetime not null,
-	horaFim datetime not null,
-	tipo varchar(30),
-	foreign key(idProfissional) references profissional(id),
-	foreign key(idPaciente) references paciente(id),
-	foreign key(idHospital) references hospital(id),
-	primary key(id) 
-
 ) ENGINE = INNODB;
 
 create table bancoDeVacinas(
