@@ -16,12 +16,16 @@ INSERT INTO banco_de_sangue(idHospital, tipo, dataExtracao, disponivel, atualiza
 (2,'B+',"2022-10-29 10:15:02",0,"2023-01-23 01:25:17"),
 (3,'O+',"2022-12-19 08:12:11",1,"2022-08-10 23:29:39"),
 (4,'A-',"2021-08-03 05:21:02",1,"2021-06-10 07:19:34"),
+(4,'O+',"2022-05-27 13:44:22",1,"2022-11-20 11:20:22"),
+(5,'A+',"2023-01-24 17:13:58",1,"2021-06-10 07:19:34"),
 (5,'B-',"2022-05-01 02:29:48",0,"2022-02-06 05:48:48"),
 (6,'O-',"2022-10-22 15:58:10",1,"2021-10-07 23:38:42"),
 (7,'O+',"2021-02-07 00:16:50",1,"2022-11-20 11:20:22"),
-(8,'O-',"2022-05-27 13:44:22",2,"2022-11-20 11:20:22"),
+(8,'O-',"2022-05-27 13:44:22",1,"2022-11-20 11:20:22"),
+(8,'O+',"2022-05-27 13:44:22",1,"2022-11-20 11:20:22"),
 (9,'A+',"2023-01-25 17:13:58",0,"2021-06-10 07:19:34"),
-(10,'B-',"2023-01-23 01:25:17",2,"2022-05-22 13:18:50");
+(9,'A+',"2023-01-24 17:13:58",1,"2021-06-10 07:19:34"),
+(10,'B-',"2023-01-23 01:25:17",1,"2022-05-22 13:18:50");
 
 INSERT INTO banco_de_vacinas(idHospital, tipo, validade, quantidade, atualizadoEm)
 VALUES
@@ -34,7 +38,7 @@ VALUES
 (7,'Pneumocócica 10 valente (Pneumo 10)',"2022-11-20 11:20:22",31,"2022-09-14 03:14:48"),
 (8,'Meningocócica C (conjugada)',"2021-06-10 07:19:34",15,"2022-03-24 12:06:05"),
 (9,'Febre Amarela (atenuada)',"2022-05-22 13:18:50",18,"2021-05-10 03:14:18"),
-(10,'Típlice viral(SCR-Sarampo, Caxumba, Rubéola',"2022-08-10 23:29:39",7,"2022-10-05 06:03:07");
+(10,'Típlice viral(SCR-Sarampo, Caxumba, Rubéola)',"2022-08-10 23:29:39",7,"2022-10-05 06:03:07");
 
 INSERT INTO usuarios (`rg`,`nome`,`sexo`,`idade`,`telefone`,`login`,`senha`)
 VALUES
@@ -126,16 +130,16 @@ VALUES
   
 INSERT INTO enfermeiros (`idProfissional`,`Especialidade`)
 VALUES
-  (1,"Obstétrica"),
-  (2,"Médico-Cirúrgica"),
-  (3,"Obstétrica"),
+  (1,"obstetrica"),
+  (2,"cardiologia"),
+  (3,"obstetrica"),
   (4,"geral"),
   (5,"geral"),
-  (6,"Pediátrica"),
-  (7,"Obstétrica"),
+  (6,"pediatria"),
+  (7,"obstetrica"),
   (8,"geral"),
   (9,"resgate"),
-  (10,"Médico-Cirúrgica");
+  (10,"cardiologia");
 
 INSERT INTO medicos (`idProfissional`,`Especialidade`)
 VALUES
