@@ -2,10 +2,13 @@ select * from usuarios;
 select * from hospitais;
 select * from profissionais;
 select * from enfermeiros;
+select * from expedientes;
 select * from medicos;
-select * from medicos as m join profissionais as p on m.idProfissional = p.id;
 select * from consultas;
 select * from banco_de_sangue;
+select * from banco_de_vacinas;
+select * from pacientes;
+
 
 select 
 	m.idProfissional, 
@@ -108,3 +111,8 @@ select
 select 
 	count(m.especialidade), m.especialidade from medicos as m join profissionais as p on m.idProfissional = p.id group by especialidade;
     
+#Selecionar nome, tipo e especialidade medicas ou dos enfermeiros dos profissionais
+select u.nome, p.tipo, medicos.especialidade as especialidadeMedica, enfermeiros.especialidade as especialidadeEnfermeiro from usuarios as u join profissionais as p on p.idUsuario = u.id left join enfermeiros on enfermeiros.idProfissional = p.id left join medicos on medicos.idProfissional = p.id;
+
+#Selecionar nome, id e tipo profissional dos paciente e profissionais
+select u.nome, pa.id as idDoPaciente, pr.id as idDoProfissional, pr.tipo as tipoProfissional from usuarios as u left join pacientes as pa on pa.idUsuario = u.id left join profissionais as pr on pr.idUsuario = u.id;
